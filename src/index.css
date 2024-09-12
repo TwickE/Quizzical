@@ -116,4 +116,19 @@ main {
     height: 1px;
     border: 0;
     border-top: 1px solid #DBDEF0;
+    margin: 15px 0 15px 0;
+}
+
+.btn-quiz {
+    display: block;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: #4D5B9E;
+    color: #F5F7FB;
+    font-size: 1rem;
+    font-weight: normal;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 20px;
 }

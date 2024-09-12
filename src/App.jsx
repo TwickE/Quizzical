@@ -6,6 +6,8 @@ import Question from './Question'
 function App() {
     const [gameStarted, setGameStarted] = React.useState(false)
     const [questions, setQuestions] = React.useState([])
+    const [userAnswers, setUserAnswers] = React.useState({})
+    const [answersChecked, setAnswersChecked] = React.useState(false)
 
     React.useEffect(() => {
         fetch('https://opentdb.com/api.php?amount=5')
@@ -15,6 +17,23 @@ function App() {
             })
     }, [])
 
+    const handleChange = (questionIndex, answer) => {
+        setUserAnswers(prevAnswers => ({
+            ...prevAnswers,
+            [questionIndex]: answer
+        }))
+    }
+
+    const checkAnswers = () => {
+        let correctCount = 0
+        questions.forEach((question, index) => {
+            if (userAnswers[index] === question.correct_answer) {
+                correctCount++
+            }
+        })
+        console.log(`You got ${correctCount} out of ${questions.length} correct!`)
+        setAnswersChecked(true)
+    }
 
     return (
         <main>
@@ -24,8 +43,18 @@ function App() {
                 gameStarted ? (
                     <section className='conatiner-questions'>
                         {questions.map((question, index) => (
-                            <Question key={index} question={question.question} incorrect_answers={question.incorrect_answers} correct_answer={question.correct_answer}/>
+                            <Question
+                                key={index} 
+                                question={question.question}
+                                incorrect_answers={question.incorrect_answers}
+                                correct_answer={question.correct_answer}
+                                handleChange={(e) => handleChange(index, e.target.value)}
+                                userAnswers={userAnswers}
+                                questionIndex={index}
+                                answersChecked={answersChecked}
+                            />
                         ))}
+                        <button onClick={checkAnswers} className='btn-quiz'>Check Answers</button>
                     </section>
                 ) : (
                     <section className='container-start-game'>
