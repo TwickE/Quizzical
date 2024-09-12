@@ -1,6 +1,7 @@
 import React from 'react'
 import blob1 from './assets/blob1.svg'
 import blob2 from './assets/blob2.svg'
+import Question from './Question'
 
 function App() {
     const [gameStarted, setGameStarted] = React.useState(false)
@@ -10,7 +11,7 @@ function App() {
         fetch('https://opentdb.com/api.php?amount=5')
             .then((response) => response.json())
             .then((data) => {
-                setQuestions(JSON.stringify(data.results))
+                setQuestions(data.results)
             })
     }, [])
 
@@ -21,7 +22,9 @@ function App() {
             <img className='blob2' src={blob2} alt="blob2" />
             {
                 gameStarted ? (
-                    <p>{questions}</p>
+                    <section className='conatiner-questions'>
+                        <Question question={questions[0].question} incorrect_answers={questions[0].incorrect_answers} correct_answer={questions[0].correct_answer}/>
+                    </section>
                 ) : (
                     <section className='container-start-game'>
                         <h1>Quizzical</h1>
