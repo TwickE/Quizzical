@@ -36,3 +36,36 @@ main {
     left: -40%;
     transform: translate(40%, -130%);
 }
+
+.container-start-game {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #293264;
+}
+
+.container-start-game h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.container-start-game p {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.container-start-game button {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: #4D5B9E;
+    color: #F5F7FB;
+    font-size: 1rem;
+    font-weight: normal;
+    cursor: pointer;
+
+}
