@@ -6,6 +6,7 @@ body {
     margin: 0;
     background-color: #0B2434;
     font-family: 'Karla', sans-serif;
+    color: #293264;
 }
 
 main {
@@ -44,7 +45,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #293264;
 }
 
 .container-start-game h1 {
@@ -76,8 +76,44 @@ main {
     padding: 60px 30px 60px 30px;
     position: relative;
     z-index: 1;
+    overflow-y: scroll;
 }
 
 .container-question h2 {
+    font-size: 1.25rem;
     margin-top: 0;
+}
+
+.container-answers {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.container-answers label {
+    font-size: 0.75rem;
+    padding: 4px 15px;
+    border: 1px solid #4D5B9E;
+    color: #293264;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container-answers input[type="radio"] {
+    display: none;
+}
+
+.container-answers label:has(input[type="radio"]:checked) {
+    background-color: #D6DBF5;
+    border: 1px solid #D6DBF5;
+}
+
+.container-question hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #DBDEF0;
 }

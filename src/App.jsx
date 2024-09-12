@@ -23,7 +23,9 @@ function App() {
             {
                 gameStarted ? (
                     <section className='conatiner-questions'>
-                        <Question question={questions[0].question} incorrect_answers={questions[0].incorrect_answers} correct_answer={questions[0].correct_answer}/>
+                        {questions.map((question, index) => (
+                            <Question key={index} question={question.question} incorrect_answers={question.incorrect_answers} correct_answer={question.correct_answer}/>
+                        ))}
                     </section>
                 ) : (
                     <section className='container-start-game'>
