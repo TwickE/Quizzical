@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #0B2434;
+    font-family: 'Karla', sans-serif;
+}
+
+main {
+    width: 550px;
+    height: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F5F7FB;
+    overflow: hidden;
+}
+
+.blob1 {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: -40%;
+    left: 130%;
+    transform: translate(-130%, 40%);
+}
+
+.blob2 {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 130%;
+    left: -40%;
+    transform: translate(40%, -130%);
+}
