@@ -2,6 +2,7 @@ import React from 'react'
 import blob1 from './assets/blob1.svg'
 import blob2 from './assets/blob2.svg'
 import Question from './Question'
+import Confetti from 'react-confetti'
 
 function App() {
     const [gameStarted, setGameStarted] = React.useState(false)
@@ -60,6 +61,7 @@ function App() {
 
     return (
         <main>
+            {score === 5 && <Confetti />}
             <img className='blob1' src={blob1} alt="blob1" />
             <img className='blob2' src={blob2} alt="blob2" />
             {
