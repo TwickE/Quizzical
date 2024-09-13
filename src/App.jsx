@@ -12,14 +12,6 @@ function App() {
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(null)
 
-    /* React.useEffect(() => {
-        fetch('https://opentdb.com/api.php?amount=5')
-            .then((response) => response.json())
-            .then((data) => {
-                setQuestions(data.results)
-            })
-    }, [gameStarted]) */
-
     React.useEffect(() => {
         if (gameStarted) {
             setLoading(true)
@@ -73,12 +65,14 @@ function App() {
             {
                 gameStarted ? (
                     loading ? (
-                        <h2>Loading...</h2>
+                        <div className='container-start-game'>
+                            <h2>Loading...</h2>
+                        </div>
                     ) : error ? (
-                        <>
+                        <div className='container-start-game'>
                             <h2>Error: {error}</h2>
                             <button onClick={playAgain} className='btn-quiz'>Try Again</button>
-                        </>
+                        </div>
                     ) : (
                     <section className='conatiner-questions'>
                         {questions.map((question, index) => (

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import he from 'he'
 
 function Question(props) {
@@ -30,7 +31,7 @@ function Question(props) {
                     return (
                         <label
                             key={index}
-                            style={ styles }
+                            style={styles}
                         >
                             <input
                                 type='radio'
@@ -48,6 +49,16 @@ function Question(props) {
             <hr />
         </form>
     )
+}
+
+Question.propTypes = {
+    question: PropTypes.string.isRequired,
+    incorrect_answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    correct_answer: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    userAnswers: PropTypes.object.isRequired,
+    questionIndex: PropTypes.number.isRequired,
+    answersChecked: PropTypes.bool.isRequired
 }
 
 export default Question
