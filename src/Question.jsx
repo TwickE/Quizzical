@@ -23,6 +23,8 @@ function Question(props) {
                         } else if (props.userAnswers[props.questionIndex] === answer) {
                             styles.backgroundColor = '#F8BCBC'
                             styles.border = '1px solid #F8BCBC'
+                        } else {
+                            styles.opacity = '0.5'
                         }
                     }
                     return (

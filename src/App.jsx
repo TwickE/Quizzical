@@ -8,6 +8,7 @@ function App() {
     const [questions, setQuestions] = React.useState([])
     const [userAnswers, setUserAnswers] = React.useState({})
     const [answersChecked, setAnswersChecked] = React.useState(false)
+    const [score, setScore] = React.useState(0)
 
     React.useEffect(() => {
         fetch('https://opentdb.com/api.php?amount=5')
@@ -25,13 +26,11 @@ function App() {
     }
 
     const checkAnswers = () => {
-        let correctCount = 0
         questions.forEach((question, index) => {
             if (userAnswers[index] === question.correct_answer) {
-                correctCount++
+                setScore(prevScore => prevScore + 1)
             }
         })
-        console.log(`You got ${correctCount} out of ${questions.length} correct!`)
         setAnswersChecked(true)
     }
 
@@ -54,7 +53,8 @@ function App() {
                                 answersChecked={answersChecked}
                             />
                         ))}
-                        <button onClick={checkAnswers} className='btn-quiz'>Check Answers</button>
+                        {answersChecked && <p>You scored {score}/{questions.length} correct answers</p>}
+                        <button onClick={checkAnswers} className='btn-quiz'>{answersChecked ? 'Play Again' : 'Check Answers'}</button>
                     </section>
                 ) : (
                     <section className='container-start-game'>
