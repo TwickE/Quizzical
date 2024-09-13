@@ -15,7 +15,7 @@ function Question(props) {
             <h2>{he.decode(props.question)}</h2>
             <div className='container-answers'>
                 {shuffledAnswers.map((answer, index) => {
-                    let styles = {}
+                    const styles = {}
                     if (props.answersChecked) {
                         if (answer === props.correct_answer) {
                             styles.backgroundColor = '#94D7A2'
